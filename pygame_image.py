@@ -11,18 +11,22 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
     tmr = 0
+    background = 0
     kokaton_3 = pg.image.load("fig/3.png")
     kokaton_3 = pg.transform.flip(kokaton_3, True, False)
+ 
 
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        screen.blit(bg_img, [background, 0])
+        
         screen.blit(kokaton_3, [300, 200])
         pg.display.update()
+        background -= 1
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
